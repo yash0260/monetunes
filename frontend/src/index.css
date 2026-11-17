@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'DM Mono', 'JetBrains Mono', 'Fira Code', monospace;
+
+    /* ── Monetunes exact brand palette ── */
+    --bg:           #0d0d0d;   /* page background */
+    --bg-surface:   #161616;   /* cards / panels */
+    --bg-elevated:  #1e1e1e;   /* inputs / hover states */
+    --bg-muted:     #252525;   /* table headers, chips */
+
+    --border:       #2a2a2a;   /* subtle separator */
+    --border-mid:   #333333;   /* medium border */
+
+    /* RED — Monetunes primary brand */
+    --red:          #e8192c;
+    --red-hover:    #ff2a3d;
+    --red-dark:     #c01020;
+    --red-muted:    rgba(232,25,44,0.12);
+    --red-glow:     rgba(232,25,44,0.25);
+
+    /* Text */
+    --text:         #ffffff;
+    --text-secondary: #888888;
+    --text-muted:   #555555;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
+  }
+
+  ::selection {
+    background-color: rgba(232, 25, 44, 0.3);
+    color: #fff;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #444; }
+
+  :focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ── Scrollbar utility ── */
+.custom-scrollbar::-webkit-scrollbar { height: 4px; width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: var(--bg-surface); }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: var(--border-mid); border-radius: 2px; }
+
+/* ── Red CTA button ── */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--red);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+.btn-red:hover {
+  background: var(--red-hover);
+  box-shadow: 0 4px 20px var(--red-glow);
+}
+.btn-red:active { transform: scale(0.98); }
+.btn-red:disabled {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Ghost button ── */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-mid);
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.btn-ghost:hover {
+  border-color: var(--red);
+  color: #fff;
+  background: var(--bg-muted);
+}
+
+/* ── Card base ── */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ── Red badge ── */
+.badge-red {
+  background: var(--red-muted);
+  color: var(--red);
+  border: 1px solid rgba(232,25,44,0.3);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Monochrome badge ── */
+.badge-mono {
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-mid);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 10px;
+}
+
+/* ── Table row hover ── */
+.row-hover { transition: background 0.1s; }
+.row-hover:hover { background: rgba(255,255,255,0.03); }
+
+/* ── Fade in up ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.35s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+/* ── Spin ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.animate-spin { animation: spin 0.75s linear infinite; }
+
+/* ── Pulse border on drag ── */
+@keyframes pulse-red {
+  0%,100% { border-color: rgba(232,25,44,0.4); }
+  50%      { border-color: rgba(232,25,44,0.9); }
+}
+.animate-pulse-red { animation: pulse-red 1.6s ease-in-out infinite; }
+
+/* ── Subtle dot grid background ── */
+.bg-dots {
+  background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ── Red glow spot ── */
+.spot-red {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(232,25,44,0.08) 0%, transparent 65%);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* ── Progress bar track ── */
+.bar-track {
+  background: var(--bg-muted);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar-fill-red {
+  background: var(--red);
+  border-radius: 999px;
+  transition: width 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.bar-fill-white {
+  background: rgba(255,255,255,0.4);
+  border-radius: 999px;
+  transition: width 0.7s cubic-bezier(0.16,1,0.3,1);
+}
