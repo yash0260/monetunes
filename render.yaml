@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: monetunes-royalty-engine
+    env: node
+    plan: free
+    buildCommand: pip install --break-system-packages --target backend/vendor -r backend/requirements.txt && pip install --break-system-packages -r backend/requirements.txt && npm install --prefix frontend && npm run build --prefix frontend
+    startCommand: python backend/main.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.0"

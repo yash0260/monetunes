@@ -1,0 +1,24 @@
+# Dependencies & environments
+node_modules/
+backend/vendor/
+.venv/
+venv/
+env/
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+*.egg-info/
+
+# Build outputs
+dist/
+build/
+frontend/dist/
+
+# Logs & temp
+*.log
+.DS_Store
+.env
+coverage/

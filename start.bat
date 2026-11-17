@@ -1,0 +1,3 @@
+@echo off
+echo Starting Monetunes (FastAPI Backend + React Frontend)...
+node run-dev.js

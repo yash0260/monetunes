@@ -1,0 +1,9 @@
+# GitHub Linguist Overrides
+*.py linguist-language=Python
+*.js linguist-language=JavaScript
+*.jsx linguist-language=JavaScript
+
+# Generated and documentation files (excluded from language calculation)
+*package-lock.json linguist-generated=true
+backend/data/*.json linguist-documentation=true
+backend/data/*.csv linguist-documentation=true
