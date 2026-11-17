@@ -1,0 +1,28 @@
+[
+  {
+    "workId": "MNT000001",
+    "title": "Midnight Drive",
+    "writers": [
+      { "name": "Alice Brown", "share": 50 },
+      { "name": "Ben Cole", "share": 50 }
+    ]
+  },
+  {
+    "workId": "MNT000002",
+    "title": "Paper Moon",
+    "writers": [
+      { "name": "Alice Brown", "share": 70 },
+      { "name": "Dana Fox", "share": 30 }
+    ]
+  },
+  {
+    "workId": "MNT000003",
+    "title": "Cold Harbour",
+    "writers": [
+      { "name": "Ben Cole", "share": 33.33 },
+      { "name": "Dana Fox", "share": 33.33 },
+      { "name": "Eli Grant", "share": 33.34 }
+    ]
+  }
+]
+
